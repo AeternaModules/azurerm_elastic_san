@@ -25,7 +25,7 @@ EOT
     zones                = optional(set(string))
     sku = object({
       name = string
-      tier = optional(string, "Premium")
+      tier = optional(string) # Default: "Premium"
     })
   }))
 }
