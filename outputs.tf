@@ -1,3 +1,7 @@
+output "elastic_sans_id" {
+  description = "Map of id values across all elastic_sans, keyed the same as var.elastic_sans"
+  value       = { for k, v in azurerm_elastic_san.elastic_sans : k => v.id }
+}
 output "elastic_sans_base_size_in_tib" {
   description = "Map of base_size_in_tib values across all elastic_sans, keyed the same as var.elastic_sans"
   value       = { for k, v in azurerm_elastic_san.elastic_sans : k => v.base_size_in_tib }
