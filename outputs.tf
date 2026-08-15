@@ -24,7 +24,7 @@ output "elastic_sans_resource_group_name" {
 }
 output "elastic_sans_sku" {
   description = "Map of sku values across all elastic_sans, keyed the same as var.elastic_sans"
-  value       = { for k, v in azurerm_elastic_san.elastic_sans : k => v.sku if v.sku != null && length(v.sku) > 0 }
+  value       = { for k, v in azurerm_elastic_san.elastic_sans : k => one(v.sku) if v.sku != null && length(v.sku) > 0 }
 }
 output "elastic_sans_tags" {
   description = "Map of tags values across all elastic_sans, keyed the same as var.elastic_sans"
